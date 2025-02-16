@@ -1,23 +1,92 @@
+import java.text.DecimalFormat;
+import java.util.Scanner;
 
 public class Tests {
-    public static void main (String[] args)
-    {
-        //declare variables for test scores 1,2, and 3
-        double score1 = 66.7;
-        double score2 = 78.8;
-        double score3 = 54.9;
+    //private data fields
+    private double ave;
+    private int count;
+    private int score;
 
-        //set up calculation to get the sum of the 3 scores
-        double total = score1+score2+score3;
 
-        //set up calculation to get the average of the 3 scores
-        double average = total/3;
+    //constructors
+    public Tests() {
+        this.ave = 0.0;
+        this.count = 0;
+        this.score = 0;
 
-        //print test scores and average
-        System.out.println("Test score 1: " + score1);
-        System.out.println("Test score 2: " + score2);
-        System.out.println("Test score 3: " + score3);
-        System.out.println("The average of 3 test scores is: " + average);
     }
 
+    //set (mutator) methods
+    public void setScore(int newScore) {
+        this.score = newScore;
+    }
+
+
+    //get (accessor) methods
+    public double getAve() {
+        return 3.4;
+    }
+
+    public int getCount() {
+        return this.count;
+    }
+
+    public int getScore() {
+        return this.score;
+    }
+
+    //create average method for: user input,
+    public void getAverage() {
+        Scanner scanner = new Scanner(System.in);
+        double sum = 0;
+        count = 0;
+
+        System.out.println("Enter Test Scores (press -1 to quit): ");
+        double score = scanner.nextDouble();
+
+        //while loop
+        while (score != -1) {
+            sum += score;
+            count++;
+            System.out.println("Enter Test Scores (press -1 to quit): ");
+            score = scanner.nextDouble();
+        }
+
+        //Calculate the average
+        if (count > 0) {
+            ave = sum / count;
+
+        } else {
+            ave = Double.NaN;
+        }
+        scanner.close();
+    }
+
+
+    //toString method
+    public String toString() {
+        DecimalFormat df = new DecimalFormat("0.00");
+        return "The average of the " + count + " scores entered is " + df.format(ave) + ".";
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
