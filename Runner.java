@@ -3,16 +3,15 @@
 //add, subtract, multiply, divide
 //user is prompted for input
 import java.util.Scanner;
+
 public class Runner {
     public static void main(String[] args){
             //instantiate a Calc object
             Calc myCalculator = new Calc();
             //get user input for two numbers
             Scanner scan = new Scanner(System.in);
-            System.out.println("Please enter the first number: ");
-            double n1 = scan.nextDouble();
-            System.out.println("Please enter the second number: ");
-            double n2 = scan.nextDouble();
+        double n1 = getTheNumber(scan, "Please enter the first number: ");
+        double n2 = getTheNumber(scan, "Please enter the second number: ");
 
             //pass the numbers to the Calc object
             myCalculator.setNum1(n1);
@@ -34,7 +33,24 @@ public class Runner {
             System.out.println("The difference is: " + myCalculator.subtract());
             System.out.println("The product is: " + myCalculator.multiply());
             System.out.println("The quotient is: " + myCalculator.divide());
-        }
-    }
 
+        }
+
+        private static double getTheNumber (Scanner scan, String prompt){
+            while (true) {
+                    System.out.println(prompt);
+                if(scan.hasNextDouble()){
+                    double number = scan.nextDouble();
+                    scan.nextLine();
+                    return number;
+                } else {
+                            System.out.println("Please enter a valid number. Example: 14 or 5.0.");
+                            scan.nextLine(); //Discard the invalid entry
+                    }
+
+            }
+
+        }
+
+    }
 
