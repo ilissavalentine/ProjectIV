@@ -7,6 +7,7 @@ public class Asn5 {
         fruits.add("Strawberries");
         fruits.add("Watermelon");
         fruits.add("Blueberries");
+        fruits.add("Pineapples");
         System.out.println(fruits);
 
         //Created the second ArrayList that consists of Integers
@@ -14,6 +15,7 @@ public class Asn5 {
         ints.add(25);
         ints.add(19);
         ints.add(104);
+        ints.add(3);
         System.out.println(ints);
 
         //Displayed the contents using a type of loop
